@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS dim_dificultad_para_caminar;
 DROP TABLE IF EXISTS dim_sabe_leer_y_escribir;
 
 -- Hogares
-DROP TABLE IF EXISTS hogares;
+DROP TABLE IF EXISTS fact_hogares;
 DROP TABLE IF EXISTS dim_barrio;
 DROP TABLE IF EXISTS dim_habitaciones_totales;
 DROP TABLE IF EXISTS dim_disponibilidad_de_baño;
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS dim_telefono_celular;
 -- Viviendas
 
 CREATE TABLE dim_barrio (
-    clave_barrio  INT(12) PRIMARY KEY, /* BARRIO85 */
+    clave_barrio  INT(12) PRIMARY KEY auto_increment, /* BARRIO85 */
     nombre VARCHAR(50) NOT NULL 
 );
 

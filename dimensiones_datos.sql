@@ -1,7 +1,7 @@
 -- viviendas
 
 /* BARRIO85 */
-INSERT INTO dim_barrio select BARRIO85 from personas;
+INSERT INTO dim_barrio (nombre) select distinct BARRIO85 from personas where BARRIO85 is not null;
 
 /* VivVO01 */
 INSERT INTO dim_tipo_de_vivienda VALUES(1,'Casa.');
