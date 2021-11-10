@@ -76,10 +76,6 @@ CREATE TABLE dim_origen_de_agua (
 
 -- Hogares
 
-CREATE TABLE dim_barrio (
-    clave_barrio  INT(12) PRIMARY KEY, /* BARRIO85 */
-    nombre varchar(50) NOT NULL
-);
 
 CREATE TABLE dim_habitaciones_totales (
     clave_habitaciones_totales int(1) PRIMARY KEY, /* HogHD00 */
@@ -118,11 +114,6 @@ CREATE TABLE dim_telefono_celular (
 
 -- Personas
 
-CREATE TABLE dim_barrio (
-    clave_barrio  INT(12) PRIMARY KEY, /* BARRIO85 */
-    nombre CHAR(20) NOT NULL
-);
-
 CREATE TABLE dim_rango_de_edad (
     clave_rango_de_edad  INT(12) PRIMARY KEY auto_increment, /* PerNa01 */
     rango VARCHAR(50) NOT NULL
@@ -159,7 +150,7 @@ CREATE TABLE dim_sabe_leer_y_escribir(
 );
 
 
---fact
+-- fact
 
 CREATE TABLE fact_viviendas (
     clave_barrio INT(12) NOT NULL REFERENCES dim_barrio (clave_barrio),
