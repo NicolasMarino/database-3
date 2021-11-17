@@ -87,13 +87,13 @@ INSERT INTO dim_calefon_o_caldera VALUES(1,'Si');
 INSERT INTO dim_calefon_o_caldera VALUES(2,'No');
 INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
 
-INSERT INTO dim_cantidadnbi VALUES(0,'Sin NBI');
-INSERT INTO dim_cantidadnbi VALUES(1,'Una NBI');
-INSERT INTO dim_cantidadnbi VALUES(2,'Dos NBI');
-INSERT INTO dim_cantidadnbi VALUES(3,'Tres o más NBI');
-INSERT INTO dim_cantidadnbi VALUES(8,'No relevado');
-INSERT INTO dim_cantidadnbi VALUES(9,'No corresponde (Vivienda colectiva)');
-INSERT INTO dim_cantidadnbi VALUES(5555,'Anonimizado por secreto estadístico');
+INSERT INTO dim_cantidad_de_nbi VALUES(0,'Sin NBI');
+INSERT INTO dim_cantidad_de_nbi VALUES(1,'Una NBI');
+INSERT INTO dim_cantidad_de_nbi VALUES(2,'Dos NBI');
+INSERT INTO dim_cantidad_de_nbi VALUES(3,'Tres o más NBI');
+INSERT INTO dim_cantidad_de_nbi VALUES(8,'No relevado');
+INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
+INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
 
 INSERT INTO dim_telefono_fijo VALUES(1,'Si');
 INSERT INTO dim_telefono_fijo VALUES(2,'No');
@@ -106,15 +106,6 @@ INSERT INTO dim_acceso_a_internet VALUES(8,'No relevado');
 INSERT INTO dim_telefono_celular VALUES(1,'Si');
 INSERT INTO dim_telefono_celular VALUES(2,'No');
 INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
-
--- Personas
-DROP TABLE IF EXISTS dim_rango_de_edad; -- preguntar
-DROP TABLE IF EXISTS dim_estado_civil;
-DROP TABLE IF EXISTS dim_dificultad_para_ver;
-DROP TABLE IF EXISTS dim_nivel_educativo;
-DROP TABLE IF EXISTS dim_actividad_economica; -- falta, tenemos una pregunta
-DROP TABLE IF EXISTS dim_dificultad_para_caminar;
-DROP TABLE IF EXISTS dim_sabe_leer_y_escribir;
 
 -- preguntar
 INSERT into dim_rango_de_edad value (1,'0-13');
