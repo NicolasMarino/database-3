@@ -76,7 +76,6 @@ CREATE TABLE dim_origen_de_agua (
 
 -- Hogares
 
-
 CREATE TABLE dim_habitaciones_totales (
     clave_habitaciones_totales int(1) PRIMARY KEY, /* HogHD00 */
     descripcion int(50) NOT NULL 
