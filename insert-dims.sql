@@ -1,4 +1,5 @@
 -- Script de inserción de datos en dims.
+-- TODO: Ordenar los inserts en el mismo orden que los create table del create-tables-facts-dims.sql y ponerles el nombre de la variable arriba (ya lo hice para personas)
 
 -- Personas
 /* BARRIO85 */
