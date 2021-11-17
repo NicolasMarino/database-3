@@ -1,4 +1,4 @@
-
+-- Script de creación de tablas de facts y dims.
 -- Viviendas
 DROP TABLE IF EXISTS fact_viviendas;
 DROP TABLE IF EXISTS dim_barrio;
@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS dim_origen_de_agua;
 -- Personas
 DROP TABLE IF EXISTS fact_personas;
 DROP TABLE IF EXISTS dim_barrio;
+DROP TABLE IF EXISTS dim_sexo;
 DROP TABLE IF EXISTS dim_rango_de_edad; 
 DROP TABLE IF EXISTS dim_estado_civil;
 DROP TABLE IF EXISTS dim_dificultad_para_ver;
@@ -113,6 +114,11 @@ CREATE TABLE dim_telefono_celular (
 
 -- Personas
 
+CREATE TABLE dim_sexo (
+    clave_sexo  INT(12) PRIMARY KEY auto_increment, /* PerPH02 */
+    sexo VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE dim_rango_de_edad (
     clave_rango_de_edad  INT(12) PRIMARY KEY auto_increment, /* PerNa01 */
     rango VARCHAR(50) NOT NULL
@@ -135,7 +141,7 @@ CREATE TABLE dim_dificultad_para_ver(
 
 CREATE TABLE dim_actividad_economica(
     clave_actividad_economica  INT(12) NOT NULL PRIMARY KEY, /* pobpcoac */
-    tiene_dificultad VARCHAR(50) NOT NULL 
+    tiene_dificultad VARCHAR(50) 
 );
 
 CREATE TABLE dim_dificultad_para_caminar(
@@ -147,7 +153,6 @@ CREATE TABLE dim_sabe_leer_y_escribir(
     clave_sabe_leer_y_escribir INT(1) NOT NULL PRIMARY KEY, /* PerEd08 */
     descripcion VARCHAR(2) NOT NULL
 );
-
 
 -- fact
 
@@ -169,13 +174,14 @@ CREATE TABLE fact_viviendas (
 
 CREATE TABLE fact_personas (
     clave_barrio INT(11) NOT NULL REFERENCES dim_barrio (clave_barrio),
-    clave_rango_de_edad INT(11) NULL REFERENCES dim_rango_de_edad (clave_rango_de_edad) ,
-    clave_estado_civil INT(11) NOT NULL REFERENCES dim_estado_civil (clave_estado_civil),
-    clave_nivel_educativo INT(11) NOT NULL REFERENCES dim_nivel_educativo (clave_nivel_educativo),
-    clave_dificultad_para_ver INT(11) NOT NULL REFERENCES dim_dificultad_para_ver (clave_dificultad_para_ver),
-    clave_actividad_economica INT(11) NOT NULL REFERENCES dim_actividad_economica (clave_actividad_economica),
-    clave_dificultad_para_caminar INT(11) NOT NULL REFERENCES dim_dificultad_para_caminar (clave_dificultad_para_caminar),
-    clave_sabe_leer_y_escribir INT(11) NOT NULL REFERENCES dim_sabe_leer_y_escribir (clave_sabe_leer_y_escribir),
+    clave_sexo INT(11) REFERENCES dim_sexo (clave_sexo),
+    clave_nivel_educativo INT(11) REFERENCES dim_nivel_educativo (clave_nivel_educativo),
+    clave_rango_de_edad INT(11) NOT NULL REFERENCES dim_rango_de_edad (clave_rango_de_edad) ,
+    clave_actividad_economica INT(11) REFERENCES dim_actividad_economica (clave_actividad_economica),
+    clave_estado_civil INT(11) REFERENCES dim_estado_civil (clave_estado_civil),
+    clave_dificultad_para_ver INT(11) REFERENCES dim_dificultad_para_ver (clave_dificultad_para_ver),
+    clave_dificultad_para_caminar INT(11) REFERENCES dim_dificultad_para_caminar (clave_dificultad_para_caminar),
+    clave_sabe_leer_y_escribir INT(11) REFERENCES dim_sabe_leer_y_escribir (clave_sabe_leer_y_escribir),
     cantidad_de_personas INT(1) default 1, /* Constante 1 */
     edad INT(11), /* PerNa01 */
     cantidad_de_hijos INT(11) /* PerFM01_r a que hace referencia ignorado (99)*/ 

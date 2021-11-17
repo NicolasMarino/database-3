@@ -1,6 +1,4 @@
--- viviendas
-
-
+-- Script de inserción de datos en dims.
 /* BARRIO85 */
 INSERT INTO dim_barrio (nombre) select distinct BARRIO85 from personas where BARRIO85 is not null;
 
@@ -74,38 +72,38 @@ INSERT INTO dim_origen_de_agua VALUES(4,'Aljibe.');
 INSERT INTO dim_origen_de_agua VALUES(5,'Cachimba.');
 INSERT INTO dim_origen_de_agua VALUES(6,'Arroyo, rio.');
 INSERT INTO dim_origen_de_agua VALUES(7,'Otro.');
-INSERT INTO dim_origen_de_agua VALUES(8,'No relevado.');
+-- INSERT INTO dim_origen_de_agua VALUES(8,'No relevado.');
 
 -- Hogares
 
 INSERT INTO dim_disponibilidad_de_baño VALUES(1,'Sí, con cisterna');
 INSERT INTO dim_disponibilidad_de_baño VALUES(2,'Sí, sin cisterna');
 INSERT INTO dim_disponibilidad_de_baño VALUES(3,'No');
-INSERT INTO dim_disponibilidad_de_baño VALUES(8,'No relevado');
+-- INSERT INTO dim_disponibilidad_de_baño VALUES(8,'No relevado');
 
 INSERT INTO dim_calefon_o_caldera VALUES(1,'Si');
 INSERT INTO dim_calefon_o_caldera VALUES(2,'No');
-INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
+-- INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
 
 INSERT INTO dim_cantidad_de_nbi VALUES(0,'Sin NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(1,'Una NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(2,'Dos NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(3,'Tres o más NBI');
-INSERT INTO dim_cantidad_de_nbi VALUES(8,'No relevado');
-INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
-INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
+-- INSERT INTO dim_cantidad_de_nbi VALUES(8,'No relevado');
+-- INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
+-- INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
 
 INSERT INTO dim_telefono_fijo VALUES(1,'Si');
 INSERT INTO dim_telefono_fijo VALUES(2,'No');
-INSERT INTO dim_telefono_fijo VALUES(8,'No relevado');
+-- INSERT INTO dim_telefono_fijo VALUES(8,'No relevado');
 
 INSERT INTO dim_acceso_a_internet VALUES(1,'Si');
 INSERT INTO dim_acceso_a_internet VALUES(2,'No');
-INSERT INTO dim_acceso_a_internet VALUES(8,'No relevado');
+-- INSERT INTO dim_acceso_a_internet VALUES(8,'No relevado');
 
 INSERT INTO dim_telefono_celular VALUES(1,'Si');
 INSERT INTO dim_telefono_celular VALUES(2,'No');
-INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
+-- INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
 
 -- preguntar
 INSERT into dim_rango_de_edad value (1,'0-13');
@@ -119,16 +117,16 @@ INSERT INTO dim_estado_civil VALUES(3,'Casado/a (incluye separado y aun no se di
 INSERT INTO dim_estado_civil VALUES(4,'Viudo/a de casamiento');
 INSERT INTO dim_estado_civil VALUES(5,'Viudo/a de unión libre');
 INSERT INTO dim_estado_civil VALUES(6,'Soltero/a (nunca se casó ni vivió en unión libre)');
-INSERT INTO dim_estado_civil VALUES(8,'No relevado');
-INSERT INTO dim_estado_civil VALUES(9,'Ignorado');
+-- INSERT INTO dim_estado_civil VALUES(8,'No relevado');
+-- INSERT INTO dim_estado_civil VALUES(9,'Ignorado');
 
 INSERT into dim_dificultad_para_ver value (1,'No tiene dificultad');
 INSERT into dim_dificultad_para_ver value (2,'Sí, alguna dificultad');
 INSERT into dim_dificultad_para_ver value (3,'Sí, mucha dificultad');
 INSERT into dim_dificultad_para_ver value (4,'Sí, no puede hacerlo');
-INSERT into dim_dificultad_para_ver value (8,'No relevado');
-INSERT into dim_dificultad_para_ver value (9,'Ignorado');
-INSERT into dim_dificultad_para_ver value (5555,'No Revelado');
+-- INSERT into dim_dificultad_para_ver value (8,'No relevado');
+-- INSERT into dim_dificultad_para_ver value (9,'Ignorado');
+-- INSERT into dim_dificultad_para_ver value (5555,'No Revelado');
 
 INSERT INTO dim_nivel_educativo VALUES(0, 'Menor de 4 años');
 INSERT INTO dim_nivel_educativo VALUES(1, 'Preescolar');
@@ -143,11 +141,12 @@ INSERT INTO dim_nivel_educativo VALUES(9, 'Universidad o similar');
 INSERT INTO dim_nivel_educativo VALUES(10, 'Postgrado (Diploma/Maestría/Doctorado)');
 INSERT INTO dim_nivel_educativo VALUES(11, 'Terciario sin especificar (Planillas)');
 INSERT INTO dim_nivel_educativo VALUES(12, 'Nunca asistió');
-INSERT INTO dim_nivel_educativo VALUES(13, 'Ignorado');
-INSERT INTO dim_nivel_educativo VALUES(88, 'No relevado');
-INSERT INTO dim_nivel_educativo VALUES(5555, 'Secreto Estadístico');
+-- INSERT INTO dim_nivel_educativo VALUES(13, 'Ignorado');
+-- INSERT INTO dim_nivel_educativo VALUES(88, 'No relevado');
+-- INSERT INTO dim_nivel_educativo VALUES(5555, 'Secreto Estadístico');
 
--- PREGUNTA, dim_actividad_economica, tenemos la consulta en notion. 
+INSERT into dim_actividad_economica value (1,'Desocupado');
+INSERT into dim_actividad_economica value (2,'Ocupado');
 
 INSERT into dim_dificultad_para_caminar value (1,'No tiene dificultad');
 INSERT into dim_dificultad_para_caminar value (2,'Sí, alguna dificultad');
@@ -159,4 +158,4 @@ INSERT into dim_dificultad_para_caminar value (5555,'No Revelado');
 
 INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');
 INSERT INTO dim_sabe_leer_y_escribir VALUES(2,'No');
-INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
+-- INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
