@@ -1,4 +1,5 @@
 -- Script de creación de tablas de facts y dims.
+
 -- Viviendas
 DROP TABLE IF EXISTS fact_viviendas;
 DROP TABLE IF EXISTS dim_barrio;

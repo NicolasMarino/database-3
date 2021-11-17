@@ -1,6 +1,75 @@
 -- Script de inserción de datos en dims.
+
+-- Personas
 /* BARRIO85 */
 INSERT INTO dim_barrio (nombre) select distinct BARRIO85 from personas where BARRIO85 is not null;
+
+/* PerPH02 */
+INSERT into dim_sexo value (1,'1');
+INSERT into dim_sexo value (2,'2');
+
+/* PerNa01 */
+INSERT into dim_rango_de_edad value (1,'0-13');
+INSERT into dim_rango_de_edad value (2,'14-50');
+INSERT into dim_rango_de_edad value (3,'51-70');
+INSERT into dim_rango_de_edad value (4,'71 y más');
+
+/* PerEC04 */
+INSERT INTO dim_estado_civil VALUES(1,'Separado/a de unión libre');
+INSERT INTO dim_estado_civil VALUES(2,'Divorciado/a');
+INSERT INTO dim_estado_civil VALUES(3,'Casado/a (incluye separado y aun no se divorció)');
+INSERT INTO dim_estado_civil VALUES(4,'Viudo/a de casamiento');
+INSERT INTO dim_estado_civil VALUES(5,'Viudo/a de unión libre');
+INSERT INTO dim_estado_civil VALUES(6,'Soltero/a (nunca se casó ni vivió en unión libre)');
+-- INSERT INTO dim_estado_civil VALUES(8,'No relevado');
+-- INSERT INTO dim_estado_civil VALUES(9,'Ignorado');
+
+/* niveledu_r */
+INSERT INTO dim_nivel_educativo VALUES(0, 'Menor de 4 años');
+INSERT INTO dim_nivel_educativo VALUES(1, 'Preescolar');
+INSERT INTO dim_nivel_educativo VALUES(2, 'Primaria común');
+INSERT INTO dim_nivel_educativo VALUES(3, 'Primaria especial');
+INSERT INTO dim_nivel_educativo VALUES(4, 'Ciclo Básico');
+INSERT INTO dim_nivel_educativo VALUES(5, 'Bachillerato');
+INSERT INTO dim_nivel_educativo VALUES(6, 'Enseñanza Técnica/Formación Profesional UTU');
+INSERT INTO dim_nivel_educativo VALUES(7, 'Magisterio o Profesorado');
+INSERT INTO dim_nivel_educativo VALUES(8, 'Terciario no universitario');
+INSERT INTO dim_nivel_educativo VALUES(9, 'Universidad o similar');
+INSERT INTO dim_nivel_educativo VALUES(10, 'Postgrado (Diploma/Maestría/Doctorado)');
+INSERT INTO dim_nivel_educativo VALUES(11, 'Terciario sin especificar (Planillas)');
+INSERT INTO dim_nivel_educativo VALUES(12, 'Nunca asistió');
+-- INSERT INTO dim_nivel_educativo VALUES(13, 'Ignorado');
+-- INSERT INTO dim_nivel_educativo VALUES(88, 'No relevado');
+-- INSERT INTO dim_nivel_educativo VALUES(5555, 'Secreto Estadístico');
+
+/* PerDi01 */
+INSERT into dim_dificultad_para_ver value (1,'No tiene dificultad');
+INSERT into dim_dificultad_para_ver value (2,'Sí, alguna dificultad');
+INSERT into dim_dificultad_para_ver value (3,'Sí, mucha dificultad');
+INSERT into dim_dificultad_para_ver value (4,'Sí, no puede hacerlo');
+-- INSERT into dim_dificultad_para_ver value (8,'No relevado');
+-- INSERT into dim_dificultad_para_ver value (9,'Ignorado');
+-- INSERT into dim_dificultad_para_ver value (5555,'No Revelado');
+
+/* pobpcoac */
+INSERT into dim_actividad_economica value (1,'Desocupado');
+INSERT into dim_actividad_economica value (2,'Ocupado');
+
+/* PerDi04 */
+INSERT into dim_dificultad_para_caminar value (1,'No tiene dificultad');
+INSERT into dim_dificultad_para_caminar value (2,'Sí, alguna dificultad');
+INSERT into dim_dificultad_para_caminar value (3,'Sí, mucha dificultad');
+INSERT into dim_dificultad_para_caminar value (4,'Sí, no puede hacerlo');
+INSERT into dim_dificultad_para_caminar value (8,'No relevado');
+INSERT into dim_dificultad_para_caminar value (9,'Ignorado');
+INSERT into dim_dificultad_para_caminar value (5555,'No Revelado');
+
+/* PerEd08 */
+INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');
+INSERT INTO dim_sabe_leer_y_escribir VALUES(2,'No');
+-- INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
+
+-- Vivienda:
 
 /* VivVO01 */
 INSERT INTO dim_tipo_de_vivienda VALUES(1,'Casa.');
@@ -104,58 +173,3 @@ INSERT INTO dim_acceso_a_internet VALUES(2,'No');
 INSERT INTO dim_telefono_celular VALUES(1,'Si');
 INSERT INTO dim_telefono_celular VALUES(2,'No');
 -- INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
-
--- preguntar
-INSERT into dim_rango_de_edad value (1,'0-13');
-INSERT into dim_rango_de_edad value (2,'14-50');
-INSERT into dim_rango_de_edad value (3,'51-70');
-INSERT into dim_rango_de_edad value (4,'71 y más');
-
-INSERT INTO dim_estado_civil VALUES(1,'Separado/a de unión libre');
-INSERT INTO dim_estado_civil VALUES(2,'Divorciado/a');
-INSERT INTO dim_estado_civil VALUES(3,'Casado/a (incluye separado y aun no se divorció)');
-INSERT INTO dim_estado_civil VALUES(4,'Viudo/a de casamiento');
-INSERT INTO dim_estado_civil VALUES(5,'Viudo/a de unión libre');
-INSERT INTO dim_estado_civil VALUES(6,'Soltero/a (nunca se casó ni vivió en unión libre)');
--- INSERT INTO dim_estado_civil VALUES(8,'No relevado');
--- INSERT INTO dim_estado_civil VALUES(9,'Ignorado');
-
-INSERT into dim_dificultad_para_ver value (1,'No tiene dificultad');
-INSERT into dim_dificultad_para_ver value (2,'Sí, alguna dificultad');
-INSERT into dim_dificultad_para_ver value (3,'Sí, mucha dificultad');
-INSERT into dim_dificultad_para_ver value (4,'Sí, no puede hacerlo');
--- INSERT into dim_dificultad_para_ver value (8,'No relevado');
--- INSERT into dim_dificultad_para_ver value (9,'Ignorado');
--- INSERT into dim_dificultad_para_ver value (5555,'No Revelado');
-
-INSERT INTO dim_nivel_educativo VALUES(0, 'Menor de 4 años');
-INSERT INTO dim_nivel_educativo VALUES(1, 'Preescolar');
-INSERT INTO dim_nivel_educativo VALUES(2, 'Primaria común');
-INSERT INTO dim_nivel_educativo VALUES(3, 'Primaria especial');
-INSERT INTO dim_nivel_educativo VALUES(4, 'Ciclo Básico');
-INSERT INTO dim_nivel_educativo VALUES(5, 'Bachillerato');
-INSERT INTO dim_nivel_educativo VALUES(6, 'Enseñanza Técnica/Formación Profesional UTU');
-INSERT INTO dim_nivel_educativo VALUES(7, 'Magisterio o Profesorado');
-INSERT INTO dim_nivel_educativo VALUES(8, 'Terciario no universitario');
-INSERT INTO dim_nivel_educativo VALUES(9, 'Universidad o similar');
-INSERT INTO dim_nivel_educativo VALUES(10, 'Postgrado (Diploma/Maestría/Doctorado)');
-INSERT INTO dim_nivel_educativo VALUES(11, 'Terciario sin especificar (Planillas)');
-INSERT INTO dim_nivel_educativo VALUES(12, 'Nunca asistió');
--- INSERT INTO dim_nivel_educativo VALUES(13, 'Ignorado');
--- INSERT INTO dim_nivel_educativo VALUES(88, 'No relevado');
--- INSERT INTO dim_nivel_educativo VALUES(5555, 'Secreto Estadístico');
-
-INSERT into dim_actividad_economica value (1,'Desocupado');
-INSERT into dim_actividad_economica value (2,'Ocupado');
-
-INSERT into dim_dificultad_para_caminar value (1,'No tiene dificultad');
-INSERT into dim_dificultad_para_caminar value (2,'Sí, alguna dificultad');
-INSERT into dim_dificultad_para_caminar value (3,'Sí, mucha dificultad');
-INSERT into dim_dificultad_para_caminar value (4,'Sí, no puede hacerlo');
-INSERT into dim_dificultad_para_caminar value (8,'No relevado');
-INSERT into dim_dificultad_para_caminar value (9,'Ignorado');
-INSERT into dim_dificultad_para_caminar value (5555,'No Revelado');
-
-INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');
-INSERT INTO dim_sabe_leer_y_escribir VALUES(2,'No');
--- INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
