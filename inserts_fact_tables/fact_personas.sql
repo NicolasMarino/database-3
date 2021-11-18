@@ -1,5 +1,6 @@
 -- Script de inserción de datos en fact_personas
 -- DONE (11/17/2021 2am nasi)
+
 DELETE from fact_personas;
 
 INSERT INTO fact_personas

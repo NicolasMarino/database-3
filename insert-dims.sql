@@ -1,7 +1,10 @@
 -- Script de inserción de datos en dims.
--- TODO: Ordenar los inserts en el mismo orden que los create table del create-tables-facts-dims.sql y ponerles el nombre de la variable arriba (ya lo hice para personas)
+-- TODO: REVISAR HABITACIONES TOTALES
 
--- Personas
+
+--------------
+-- Personas --
+--------------
 /* BARRIO85 */
 INSERT INTO dim_barrio (nombre) select distinct BARRIO85 from personas where BARRIO85 is not null;
 
@@ -70,8 +73,9 @@ INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');
 INSERT INTO dim_sabe_leer_y_escribir VALUES(2,'No');
 -- INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
 
--- Vivienda:
-
+---------------
+-- Viviendas --
+---------------
 /* VivVO01 */
 INSERT INTO dim_tipo_de_vivienda VALUES(1,'Casa.');
 INSERT INTO dim_tipo_de_vivienda VALUES(2,'Apartamento en edificio en altura con ascensor.');
@@ -144,17 +148,10 @@ INSERT INTO dim_origen_de_agua VALUES(6,'Arroyo, rio.');
 INSERT INTO dim_origen_de_agua VALUES(7,'Otro.');
 -- INSERT INTO dim_origen_de_agua VALUES(8,'No relevado.');
 
--- Hogares
-
-INSERT INTO dim_disponibilidad_de_baño VALUES(1,'Sí, con cisterna');
-INSERT INTO dim_disponibilidad_de_baño VALUES(2,'Sí, sin cisterna');
-INSERT INTO dim_disponibilidad_de_baño VALUES(3,'No');
--- INSERT INTO dim_disponibilidad_de_baño VALUES(8,'No relevado');
-
-INSERT INTO dim_calefon_o_caldera VALUES(1,'Si');
-INSERT INTO dim_calefon_o_caldera VALUES(2,'No');
--- INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
-
+-------------
+-- Hogares --
+-------------
+/* NBI_CANTIDAD */
 INSERT INTO dim_cantidad_de_nbi VALUES(0,'Sin NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(1,'Una NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(2,'Dos NBI');
@@ -163,14 +160,34 @@ INSERT INTO dim_cantidad_de_nbi VALUES(3,'Tres o más NBI');
 -- INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
 -- INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
 
+/* HogHD00 */
+-- revisar
+--INSERT INTO dim_habitaciones_totales VALUES(1,1);
+--INSERT INTO dim_habitaciones_totales VALUES(2,4);
+--INSERT INTO dim_habitaciones_totales VALUES(3,6);
+
+/* HogSH01 */
+INSERT INTO dim_disponibilidad_de_baño VALUES(1,'Sí, con cisterna');
+INSERT INTO dim_disponibilidad_de_baño VALUES(2,'Sí, sin cisterna');
+INSERT INTO dim_disponibilidad_de_baño VALUES(3,'No');
+-- INSERT INTO dim_disponibilidad_de_baño VALUES(8,'No relevado');
+
+/* HogCE07 */
 INSERT INTO dim_telefono_fijo VALUES(1,'Si');
 INSERT INTO dim_telefono_fijo VALUES(2,'No');
 -- INSERT INTO dim_telefono_fijo VALUES(8,'No relevado');
 
+/* HogCE11 */
 INSERT INTO dim_acceso_a_internet VALUES(1,'Si');
 INSERT INTO dim_acceso_a_internet VALUES(2,'No');
 -- INSERT INTO dim_acceso_a_internet VALUES(8,'No relevado');
 
+/* HogCE08 */
 INSERT INTO dim_telefono_celular VALUES(1,'Si');
 INSERT INTO dim_telefono_celular VALUES(2,'No');
 -- INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
+
+/* HogCE01 */
+INSERT INTO dim_calefon_o_caldera VALUES(1,'Si');
+INSERT INTO dim_calefon_o_caldera VALUES(2,'No');
+-- INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
