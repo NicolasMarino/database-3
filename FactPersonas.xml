@@ -2,11 +2,51 @@
   <Cube name="personas" visible="true" cache="true" enabled="true">
     <Table name="fact_personas">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" name="barrio">
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" highCardinality="false" name="Barrrio">
       <Hierarchy name="Barrio" visible="true" hasAll="true">
-        <Table name="dim_barrio" alias="">
+        <Table name="dim_barrio">
         </Table>
         <Level name="Nombre Barrio" visible="true" table="dim_barrio" column="clave_barrio" nameColumn="nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_rango_de_edad" highCardinality="false" name="Rango de edad">
+      <Hierarchy name="Rango edad" visible="true" hasAll="true">
+        <Table name="dim_rango_de_edad">
+        </Table>
+        <Level name="Nombre rango" visible="true" table="dim_rango_de_edad" column="clave_rango_de_edad" nameColumn="rango" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_estado_civil" name="Estado civil">
+      <Hierarchy name="Estado civil" visible="true" hasAll="true">
+        <Table name="dim_estado_civil" alias="">
+        </Table>
+        <Level name="Estado civil" visible="true" table="dim_estado_civil" column="clave_estado_civil" nameColumn="estado_civil" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_dificultad_para_ver" name="Dificultad para ver">
+      <Hierarchy name="Dificultad para ver" visible="true" hasAll="true">
+        <Table name="dim_dificultad_para_ver" alias="">
+        </Table>
+        <Level name="Dificultad para ver" visible="true" table="dim_dificultad_para_ver" column="clave_dificultad_para_ver" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_nivel_educativo" name="Nivel educativo">
+      <Hierarchy name="Nivel educativo" visible="true" hasAll="true">
+        <Table name="dim_nivel_educativo" alias="">
+        </Table>
+        <Level name="Nivel educativo" visible="true" table="dim_nivel_educativo" column="clave_nivel_educativo" nameColumn="nivel_mas_alto_que_curso" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_actividad_economica" name="Actividad economica">
+      <Hierarchy name="Actividad economica" visible="true" hasAll="true">
+        <Table name="dim_actividad_economica" alias="">
+        </Table>
+        <Level name="Actividad economica" visible="true" table="dim_actividad_economica" column="clave_actividad_economica" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
