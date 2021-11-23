@@ -30,7 +30,7 @@ CASE
     WHEN v.ViVVO01 = 20 THEN NULL
     ELSE v.ViVVO01
 END as tipo_vivienda,
-v.TIPO_VIVIENDA as tipo_viv_resumido,
+v.TIPO_VIVIE as tipo_viv_resumido,
 CASE
     WHEN v.VivDV03 = 8 THEN NULL
     ELSE v.VivDV03
@@ -51,15 +51,16 @@ CASE
     WHEN v.VivDV05 = 8 THEN NULL
     ELSE v.VivDV05
 END as origen_agua,
-1 as cantidad_viviendas
--- faltan hechos:
---  cantidad de hogares en vivienda
---  cantidad de mujeres
---  cantidad de hombres
---  cantidad de personas
+1 as cantidad_viviendas,
+COUNT(DISTINCT h.HOGID) AS cant_hogares,
+SUM(h.HogPR03) AS cant_mujeres,
+SUM(h.HogPR02) AS cant_hombres,
+SUM(h.HogPR01) AS cant_personas
 FROM viviendas2 v
 	INNER JOIN dim_barrio ba ON v.BARRIO85 = ba.nombre
-    -- falta revisar joins
-WHERE v.BARRIO85 is NOT NULL
-GROUP BY v.BARRIO85, v.ViVVO01, v.VivDV03, v.VivDV01, v.VivDV02,  v.VivDV07, 
-		 v.VivDV05;
+    INNER JOIN hogares_v2 h ON v.ID_VIVIEND = h.ID_VIVIEND
+WHERE v.BARRIO85 is NOT NULL and v.ViVVO01 not in (20,11)
+GROUP BY v.ID_VIVIEND, v.BARRIO85, v.ViVVO01, v.VivDV03, v.VivDV01, v.VivDV02,  v.VivDV07, v.VivDV05;
+
+SELECT COUNT(1) FROM fact_viviendas;
+SELECT COUNT(1) FROM viviendas2 WHERE BARRIO85 is NOT NULL and ViVVO01 not in (20,11);

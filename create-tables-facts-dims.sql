@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS dim_origen_de_agua;
 -------------
 DROP TABLE IF EXISTS fact_hogares;
 DROP TABLE IF EXISTS dim_barrio;
-DROP TABLE IF EXISTS dim_habitaciones_totales;
+DROP TABLE IF EXISTS dim_lugar_para_cocinar;
 DROP TABLE IF EXISTS dim_disponibilidad_de_baño;
 DROP TABLE IF EXISTS dim_calefon_o_caldera;
 DROP TABLE IF EXISTS dim_cantidad_de_nbi;
@@ -91,9 +91,9 @@ CREATE TABLE dim_cantidad_de_nbi (
     descripcion varchar(50) NOT NULL
 );
 
-CREATE TABLE dim_habitaciones_totales (
-    clave_habitaciones_totales int(1) PRIMARY KEY, /* HogHD00 */
-    descripcion int(50) NOT NULL 
+CREATE TABLE dim_lugar_para_cocinar (
+    clave_lugar_para_cocinar int(1) PRIMARY KEY, /* HogHD00 */
+    descripcion varchar(50) NOT NULL 
 );
 
 CREATE TABLE dim_disponibilidad_de_baño (
@@ -168,13 +168,13 @@ CREATE TABLE dim_sabe_leer_y_escribir(
 -- Viviendas --
 CREATE TABLE fact_viviendas (
     clave_barrio INT(12) NOT NULL REFERENCES dim_barrio (clave_barrio),
-    clave_tipo_de_vivienda INT(12) NOT NULL REFERENCES dim_tipo_de_vivienda(clave_tipo_de_vivienda),
-    clave_material_paredes_exteriores INT(12) NOT NULL REFERENCES dim_material_paredes_exteriores (clave_material_paredes_exteriores),
-    clave_medio_alumbrado_electrico INT(12) NOT NULL REFERENCES dim_medio_alumbrado_electrico (clave_medio_alumbrado_electrico),
-    clave_tipo_vivienda_resumido INT(12) NOT NULL REFERENCES dim_tipo_vivienda_resumido (clave_tipo_vivienda_resumido),
-    clave_material_pisos INT(12) NOT NULL REFERENCES dim_material_pisos (clave_material_pisos),
-    clave_material_techos INT(12) NOT NULL REFERENCES dim_material_techos (clave_material_techos),
-    clave_origen_de_agua INT(12) NOT NULL REFERENCES dim_origen_de_agua (clave_origen_de_agua),
+    clave_tipo_de_vivienda INT(12) REFERENCES dim_tipo_de_vivienda(clave_tipo_de_vivienda),
+    clave_material_paredes_exteriores INT(12) REFERENCES dim_material_paredes_exteriores (clave_material_paredes_exteriores),
+    clave_medio_alumbrado_electrico INT(12) REFERENCES dim_medio_alumbrado_electrico (clave_medio_alumbrado_electrico),
+    clave_tipo_vivienda_resumido INT(12) REFERENCES dim_tipo_vivienda_resumido (clave_tipo_vivienda_resumido),
+    clave_material_pisos INT(12)  REFERENCES dim_material_pisos (clave_material_pisos),
+    clave_material_techos INT(12) REFERENCES dim_material_techos (clave_material_techos),
+    clave_origen_de_agua INT(12) REFERENCES dim_origen_de_agua (clave_origen_de_agua),
     cantidad_de_viviendas INT(1) default 1, /* Constante 1 */
     cantidad_de_hogares_en_vivienda  INT(12), /* VivHV01_1 */
     cantidad_de_mujeres  INT(12), /* HOGPR03 */
@@ -185,13 +185,13 @@ CREATE TABLE fact_viviendas (
 -- Hogares --
 CREATE TABLE fact_hogares (
     clave_barrio INT(11) NOT NULL REFERENCES dim_barrio (clave_barrio),
-    clave_habitaciones_totales INT(11) NOT NULL REFERENCES dim_habitaciones_totales (clave_habitaciones_totales),
-    clave_disponibilidad_de_baño INT(11) NOT NULL REFERENCES dim_disponibilidad_de_baño (clave_disponibilidad_de_baño),
-    clave_calefon_o_caldera INT(11) NOT NULL REFERENCES dim_calefon_o_caldera (clave_calefon_o_caldera),
-    clave_cantidad_de_nbi INT(11) NOT NULL REFERENCES dim_cantidad_de_nbi (clave_cantidad_de_nbi),
-    clave_telefono_fijo INT(11) NOT NULL REFERENCES dim_telefono_fijo (clave_telefono_fijo),
-    clave_acceso_a_internet INT(11) NOT NULL REFERENCES dim_acceso_a_internet (clave_acceso_a_internet),
-    clave_telefono_celular INT(11) NOT NULL REFERENCES dim_telefono_celular (clave_telefono_celular),
+    clave_cantidad_de_nbi INT(11)  REFERENCES dim_cantidad_de_nbi (clave_cantidad_de_nbi),
+    clave_lugar_para_cocinar INT(11)  REFERENCES dim_lugar_para_cocinar (clave_lugar_para_cocinar),
+    clave_disponibilidad_de_baño INT(11)  REFERENCES dim_disponibilidad_de_baño (clave_disponibilidad_de_baño),
+    clave_telefono_fijo INT(11) REFERENCES dim_telefono_fijo (clave_telefono_fijo),
+    clave_acceso_a_internet INT(11) REFERENCES dim_acceso_a_internet (clave_acceso_a_internet),
+    clave_telefono_celular INT(11) REFERENCES dim_telefono_celular (clave_telefono_celular),
+    clave_calefon_o_caldera INT(11) REFERENCES dim_calefon_o_caldera (clave_calefon_o_caldera),
     cantidad_de_hogares INT(11) default 1, /* Constante 1 */
     cantidad_de_mujeres INT(11), /* HOGPR03 */
     cantidad_de_hombres INT(11), /* HOGPR02 */

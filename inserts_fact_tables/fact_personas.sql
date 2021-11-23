@@ -1,6 +1,3 @@
--- Script de inserción de datos en fact_personas
--- DONE (11/17/2021 2am nasi)
-
 DELETE from fact_personas;
 
 INSERT INTO fact_personas
@@ -46,5 +43,8 @@ END as cantidad_de_hijos_vivos
 FROM personas2 p
 	INNER JOIN dim_barrio ba ON p.BARRIO85 = ba.nombre
 WHERE p.BARRIO85 is NOT NULL AND p.PerEC04 != 5555
-GROUP BY p.BARRIO85, p.PerPH02, p.niveledu_r, p.PerNa01, p.pobpcoac,  p.PerEC04, 
-		 p.PerDi01, p.PerDi04, p.PerEd08, p.PerNa01, p.PerFM01_r;
+GROUP BY p.ID_viviend, p.hogid, p.perid, p.BARRIO85, p.PerPH02, p.niveledu_r, p.PerNa01, p.pobpcoac,  p.PerEC04, 
+		 p.PerDi01, p.PerDi04, p.PerEd08, p.PerFM01_r;
+         
+SELECT COUNT(1) FROM fact_personas;
+SELECT COUNT(1) FROM personas2 where BARRIO85 is NOT NULL AND PerEC04 != 5555

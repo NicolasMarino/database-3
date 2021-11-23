@@ -1,22 +1,17 @@
--- Script de inserción de datos en fact_hogares
-
-/*
-TODO:
- - Agregar habitaciones totales.
- - Revisar join.
- - Agregar hechos y ponerlos en group by.
-*/
-
 DELETE from fact_hogares;
 
 INSERT INTO fact_hogares
-SELECT ba.clahe_barrio, 
+SELECT ba.clave_barrio, 
 CASE
-    WHEN h.NBI_CANTIDAD = 8 THEN NULL
-    WHEN h.NBI_CANTIDAD = 9 THEN NULL
-    WHEN h.NBI_CANTIDAD = 5555 THEN NULL
-    ELSE h.NBI_CANTIDAD
+    WHEN h.NBI_CANTID = 8 THEN NULL
+    WHEN h.NBI_CANTID = 9 THEN NULL
+    WHEN h.NBI_CANTID = 5555 THEN NULL
+    ELSE h.NBI_CANTID
 END as cantidad_nbi,
+CASE 
+	WHEN H.HogSC01 = 8 THEN NULL
+	ELSE H.HogSC01
+END as lugar_para_cocinar,
 CASE
     WHEN h.HogSH01 = 8 THEN NULL
     ELSE h.HogSH01
@@ -37,14 +32,15 @@ CASE
     WHEN h.HogCE01 = 8 THEN NULL
     ELSE h.HogCE01
 END as calefon_o_caldera,
-1 as cantidad_hogares
--- faltan hechos:
---  cantidad de mujeres
---  cantidad de hombres
---  cantidad de personas
-FROM hogares2 h
+1 as cantidad_hogares,
+h.HOGPR03,
+h.HOGPR02,
+h.HOGPR01
+FROM hogares_v2 h
 	INNER JOIN dim_barrio ba ON h.BARRIO85 = ba.nombre
-    -- falta revisar joins
 WHERE h.BARRIO85 is NOT NULL
-GROUP BY h.BARRIO85, h.NBI_CANTIDAD, h.HogSH01, h.HogCE07, h.HogCE11,  h.HogCE08, 
+GROUP BY h.ID_VIVIEND, H.HOGID, h.BARRIO85, h.NBI_CANTID, h.HogSH01, h.HogCE07, h.HogCE11,  h.HogCE08, 
 		 h.HogCE01;
+         
+SELECT COUNT(1) FROM fact_hogares;
+SELECT COUNT(1) FROM HOGARES WHERE BARRIO85 is NOT NULL;

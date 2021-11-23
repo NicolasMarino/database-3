@@ -160,11 +160,11 @@ INSERT INTO dim_cantidad_de_nbi VALUES(3,'Tres o más NBI');
 -- INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
 -- INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
 
-/* HogHD00 */
--- revisar
---INSERT INTO dim_habitaciones_totales VALUES(1,1);
---INSERT INTO dim_habitaciones_totales VALUES(2,4);
---INSERT INTO dim_habitaciones_totales VALUES(3,6);
+/* HogSC01 */
+INSERT INTO dim_lugar_para_cocinar VALUES(1,'Sí, privado de este hogar');
+INSERT INTO dim_lugar_para_cocinar VALUES(2,'Si, compartido con otros hogares');
+INSERT INTO dim_lugar_para_cocinar VALUES(3,'No');
+-- INSERT INTO dim_lugar_para_cocinar VALUES(3,'No relevado');
 
 /* HogSH01 */
 INSERT INTO dim_disponibilidad_de_baño VALUES(1,'Sí, con cisterna');
