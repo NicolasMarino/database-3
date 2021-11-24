@@ -50,7 +50,27 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="Cantidad" column="cantidad_de_personas" aggregator="sum" visible="true">
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_dificultad_para_caminar" name="Dificultad para caminar">
+      <Hierarchy name="Dificultad para caminar" visible="true" hasAll="true">
+        <Table name="dim_dificultad_para_caminar" alias="">
+        </Table>
+        <Level name="Dificultad para caminar" visible="true" table="dim_dificultad_para_caminar" column="clave_dificultad_para_caminar" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_sabe_leer_y_escribir" name="Sabe leer y escribir">
+      <Hierarchy name="Sabe leer y escribir" visible="true" hasAll="true">
+        <Table name="dim_sabe_leer_y_escribir" alias="">
+        </Table>
+        <Level name="Sabe leer y escribir" visible="true" table="dim_sabe_leer_y_escribir" column="clave_sabe_leer_y_escribir" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Cantidad de personas" column="cantidad_de_personas" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de hijos" column="cantidad_de_hijos" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Edad" column="edad" aggregator="avg" visible="true">
     </Measure>
   </Cube>
 </Schema>
