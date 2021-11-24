@@ -203,7 +203,7 @@ CREATE TABLE fact_personas (
     clave_barrio INT(11) NOT NULL REFERENCES dim_barrio (clave_barrio),
     clave_sexo INT(11) REFERENCES dim_sexo (clave_sexo),
     clave_nivel_educativo INT(11) REFERENCES dim_nivel_educativo (clave_nivel_educativo),
-    clave_rango_de_edad INT(11) NOT NULL REFERENCES dim_rango_de_edad (clave_rango_de_edad) ,
+    clave_rango_de_edad INT(11)  REFERENCES dim_rango_de_edad (clave_rango_de_edad) ,
     clave_actividad_economica INT(11) REFERENCES dim_actividad_economica (clave_actividad_economica),
     clave_estado_civil INT(11) REFERENCES dim_estado_civil (clave_estado_civil),
     clave_dificultad_para_ver INT(11) REFERENCES dim_dificultad_para_ver (clave_dificultad_para_ver),

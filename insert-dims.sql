@@ -1,6 +1,4 @@
 -- Script de inserción de datos en dims.
--- TODO: REVISAR HABITACIONES TOTALES
-
 
 --------------
 -- Personas --
@@ -9,8 +7,8 @@
 INSERT INTO dim_barrio (nombre) select distinct BARRIO85 from personas where BARRIO85 is not null;
 
 /* PerPH02 */
-INSERT into dim_sexo value (1,'1');
-INSERT into dim_sexo value (2,'2');
+INSERT into dim_sexo value (1,'Hombre');
+INSERT into dim_sexo value (2,'Mujer');
 
 /* PerNa01 */
 INSERT into dim_rango_de_edad value (1,'0-13');
@@ -25,8 +23,6 @@ INSERT INTO dim_estado_civil VALUES(3,'Casado/a (incluye separado y aun no se di
 INSERT INTO dim_estado_civil VALUES(4,'Viudo/a de casamiento');
 INSERT INTO dim_estado_civil VALUES(5,'Viudo/a de unión libre');
 INSERT INTO dim_estado_civil VALUES(6,'Soltero/a (nunca se casó ni vivió en unión libre)');
--- INSERT INTO dim_estado_civil VALUES(8,'No relevado');
--- INSERT INTO dim_estado_civil VALUES(9,'Ignorado');
 
 /* niveledu_r */
 INSERT INTO dim_nivel_educativo VALUES(0, 'Menor de 4 años');
@@ -42,18 +38,12 @@ INSERT INTO dim_nivel_educativo VALUES(9, 'Universidad o similar');
 INSERT INTO dim_nivel_educativo VALUES(10, 'Postgrado (Diploma/Maestría/Doctorado)');
 INSERT INTO dim_nivel_educativo VALUES(11, 'Terciario sin especificar (Planillas)');
 INSERT INTO dim_nivel_educativo VALUES(12, 'Nunca asistió');
--- INSERT INTO dim_nivel_educativo VALUES(13, 'Ignorado');
--- INSERT INTO dim_nivel_educativo VALUES(88, 'No relevado');
--- INSERT INTO dim_nivel_educativo VALUES(5555, 'Secreto Estadístico');
 
 /* PerDi01 */
 INSERT into dim_dificultad_para_ver value (1,'No tiene dificultad');
 INSERT into dim_dificultad_para_ver value (2,'Sí, alguna dificultad');
 INSERT into dim_dificultad_para_ver value (3,'Sí, mucha dificultad');
 INSERT into dim_dificultad_para_ver value (4,'Sí, no puede hacerlo');
--- INSERT into dim_dificultad_para_ver value (8,'No relevado');
--- INSERT into dim_dificultad_para_ver value (9,'Ignorado');
--- INSERT into dim_dificultad_para_ver value (5555,'No Revelado');
 
 /* pobpcoac */
 INSERT into dim_actividad_economica value (1,'Desocupado');
@@ -71,7 +61,6 @@ INSERT into dim_dificultad_para_caminar value (5555,'No Revelado');
 /* PerEd08 */
 INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');
 INSERT INTO dim_sabe_leer_y_escribir VALUES(2,'No');
--- INSERT INTO dim_sabe_leer_y_escribir VALUES(8,'No relevado');
 
 ---------------
 -- Viviendas --
@@ -106,7 +95,6 @@ INSERT INTO dim_material_paredes_exteriores VALUES(4,'Materiales livianos (mader
 INSERT INTO dim_material_paredes_exteriores VALUES(5,'Barro (terron, adobe o fajina).');
 INSERT INTO dim_material_paredes_exteriores VALUES(6,'Materiales de desecho.');
 INSERT INTO dim_material_paredes_exteriores VALUES(7,'Otro.');
--- INSERT INTO dim_material_paredes_exteriores VALUES(8,'No relevado');
 
 /* VivDV07 */
 INSERT INTO dim_medio_alumbrado_electrico VALUES(1,'UTE o red general.');
@@ -115,7 +103,6 @@ INSERT INTO dim_medio_alumbrado_electrico VALUES(3,'Cargador solar de bateria.')
 INSERT INTO dim_medio_alumbrado_electrico VALUES(4,'Grupo electrogeno propio.');
 INSERT INTO dim_medio_alumbrado_electrico VALUES(5,'Otro electrico.');
 INSERT INTO dim_medio_alumbrado_electrico VALUES(6,'No tiene.');
--- INSERT INTO dim_medio_alumbrado_electrico VALUES(8,'No relevado.');
 
 /* TIPO_VIVIENDA */
 INSERT INTO dim_tipo_vivienda_resumido VALUES(1, 'Particular');
@@ -127,7 +114,6 @@ INSERT INTO dim_material_pisos VALUES (2,'Arena y portland.');
 INSERT INTO dim_material_pisos VALUES (3,'Solo contrapiso sin piso.');
 INSERT INTO dim_material_pisos VALUES (4,'Tierra sin piso ni contrapiso.');
 INSERT INTO dim_material_pisos VALUES (5,'Otro.');
--- INSERT INTO dim_material_pisos VALUES (8,'No relevado.');
 
 /* VivDV02 */
 INSERT INTO dim_material_techos VALUES(1,'Planchada de hormigon o bovedilla con o sin tejas.');
@@ -136,7 +122,6 @@ INSERT INTO dim_material_techos VALUES(3,'Liviano sin cielo raso.');
 INSERT INTO dim_material_techos VALUES(4,'Quincha.');
 INSERT INTO dim_material_techos VALUES(5,'Materiales de desecho.');
 INSERT INTO dim_material_techos VALUES(6,'Otro.');
--- INSERT INTO dim_material_techos VALUES(8,'No relevado.');
 
 /* VivDV05 */
 INSERT INTO dim_origen_de_agua VALUES(1,'OSE o red general.');
@@ -146,7 +131,6 @@ INSERT INTO dim_origen_de_agua VALUES(4,'Aljibe.');
 INSERT INTO dim_origen_de_agua VALUES(5,'Cachimba.');
 INSERT INTO dim_origen_de_agua VALUES(6,'Arroyo, rio.');
 INSERT INTO dim_origen_de_agua VALUES(7,'Otro.');
--- INSERT INTO dim_origen_de_agua VALUES(8,'No relevado.');
 
 -------------
 -- Hogares --
@@ -156,38 +140,29 @@ INSERT INTO dim_cantidad_de_nbi VALUES(0,'Sin NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(1,'Una NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(2,'Dos NBI');
 INSERT INTO dim_cantidad_de_nbi VALUES(3,'Tres o más NBI');
--- INSERT INTO dim_cantidad_de_nbi VALUES(8,'No relevado');
--- INSERT INTO dim_cantidad_de_nbi VALUES(9,'No corresponde (Vivienda colectiva)');
--- INSERT INTO dim_cantidad_de_nbi VALUES(5555,'Anonimizado por secreto estadístico');
 
 /* HogSC01 */
 INSERT INTO dim_lugar_para_cocinar VALUES(1,'Sí, privado de este hogar');
 INSERT INTO dim_lugar_para_cocinar VALUES(2,'Si, compartido con otros hogares');
 INSERT INTO dim_lugar_para_cocinar VALUES(3,'No');
--- INSERT INTO dim_lugar_para_cocinar VALUES(3,'No relevado');
 
 /* HogSH01 */
 INSERT INTO dim_disponibilidad_de_baño VALUES(1,'Sí, con cisterna');
 INSERT INTO dim_disponibilidad_de_baño VALUES(2,'Sí, sin cisterna');
 INSERT INTO dim_disponibilidad_de_baño VALUES(3,'No');
--- INSERT INTO dim_disponibilidad_de_baño VALUES(8,'No relevado');
 
 /* HogCE07 */
 INSERT INTO dim_telefono_fijo VALUES(1,'Si');
 INSERT INTO dim_telefono_fijo VALUES(2,'No');
--- INSERT INTO dim_telefono_fijo VALUES(8,'No relevado');
 
 /* HogCE11 */
 INSERT INTO dim_acceso_a_internet VALUES(1,'Si');
 INSERT INTO dim_acceso_a_internet VALUES(2,'No');
--- INSERT INTO dim_acceso_a_internet VALUES(8,'No relevado');
 
 /* HogCE08 */
 INSERT INTO dim_telefono_celular VALUES(1,'Si');
 INSERT INTO dim_telefono_celular VALUES(2,'No');
--- INSERT INTO dim_telefono_celular VALUES(8,'No relevado');
 
 /* HogCE01 */
 INSERT INTO dim_calefon_o_caldera VALUES(1,'Si');
 INSERT INTO dim_calefon_o_caldera VALUES(2,'No');
--- INSERT INTO dim_calefon_o_caldera VALUES(8,'No relevado');
