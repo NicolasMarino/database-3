@@ -1,5 +1,5 @@
 <Schema name="Obli">
-  <Cube name="personas" visible="true" cache="true" enabled="true">
+  <Cube name="Personas" visible="true" cache="true" enabled="true">
     <Table name="fact_personas">
     </Table>
     <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" highCardinality="false" name="Barrrio">
@@ -71,6 +71,82 @@
     <Measure name="Cantidad de hijos" column="cantidad_de_hijos" aggregator="sum" visible="true">
     </Measure>
     <Measure name="Edad" column="edad" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="Viviendas" visible="true" cache="true" enabled="true">
+    <Table name="fact_viviendas">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" name="Barrio">
+      <Hierarchy name="Barrio" visible="true" hasAll="true">
+        <Table name="dim_barrio" alias="">
+        </Table>
+        <Level name="Barrio" visible="true" table="dim_barrio" column="clave_barrio" nameColumn="nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_tipo_de_vivienda" name="Tipo de vivienda">
+      <Hierarchy name="Tipo de vivienda" visible="true" hasAll="true">
+        <Table name="dim_tipo_de_vivienda" alias="">
+        </Table>
+        <Level name="Tipo de vivienda" visible="true" table="dim_tipo_de_vivienda" column="clave_tipo_de_vivienda" nameColumn="descripcion" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_material_paredes_exteriores" name="Material paredes exteriores">
+      <Hierarchy name="Material paredes exteriores" visible="true" hasAll="true">
+        <Table name="dim_material_paredes_exteriores" alias="">
+        </Table>
+        <Level name="Material paredes exteriores" visible="true" table="dim_material_paredes_exteriores" column="clave_material_paredes_exteriores" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_medio_alumbrado_electrico" name="Medio alumbrado electrico">
+      <Hierarchy name="Medio alumbrado electrico" visible="true" hasAll="true">
+        <Table name="dim_medio_alumbrado_electrico" alias="">
+        </Table>
+        <Level name="Medio alumbrado electrico" visible="true" table="dim_medio_alumbrado_electrico" column="clave_medio_alumbrado_electrico" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_tipo_vivienda_resumido" name="Tipo de vivienda resumido">
+      <Hierarchy name="Tipo de vivienda resumido" visible="true" hasAll="true">
+        <Table name="dim_tipo_vivienda_resumido" alias="">
+        </Table>
+        <Level name="Tipo de vivienda resumido" visible="true" table="dim_tipo_vivienda_resumido" column="clave_tipo_vivienda_resumido" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_material_pisos" name="Material pisos">
+      <Hierarchy name="Material pisos" visible="true" hasAll="true">
+        <Table name="dim_material_pisos" alias="">
+        </Table>
+        <Level name="Material pisos" visible="true" table="dim_material_pisos" column="clave_material_pisos" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_material_techos" name="Material techos">
+      <Hierarchy name="Material techos" visible="true" hasAll="true">
+        <Table name="dim_material_techos" alias="">
+        </Table>
+        <Level name="Material techos" visible="true" table="dim_material_techos" column="clave_material_techos" nameColumn="desciripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_origen_de_agua" name="Origen de agua">
+      <Hierarchy name="Origen de agua" visible="true" hasAll="true">
+        <Table name="dim_origen_de_agua" alias="">
+        </Table>
+        <Level name="Origen de agua" visible="true" table="dim_origen_de_agua" column="clave_origen_de_agua" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Cantidad de viviendas" column="cantidad_de_viviendas" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de hogares en vivienda" column="cantidad_de_hogares_en_vivienda" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de mujeres" column="cantidad_de_mujeres" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de hombres" column="cantidad_de_hombres" aggregator="sum" visible="true">
     </Measure>
   </Cube>
 </Schema>
