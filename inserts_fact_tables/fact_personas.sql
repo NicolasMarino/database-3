@@ -47,4 +47,4 @@ GROUP BY p.ID_viviend, p.hogid, p.perid, p.BARRIO85, p.PerPH02, p.niveledu_r, p.
 		 p.PerDi01, p.PerDi04, p.PerEd08, p.PerFM01_r;
          
 SELECT COUNT(1) FROM fact_personas;
-SELECT COUNT(1) FROM personas2 where BARRIO85 is NOT NULL AND PerEC04 != 5555
+SELECT COUNT(1) FROM personas2 where BARRIO85 is NOT NULL

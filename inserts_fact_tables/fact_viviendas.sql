@@ -33,10 +33,10 @@ h.HogPR03 AS cant_mujeres,
 h.HogPR02 AS cant_hombres,
 h.HogPR01 AS cant_personas
 FROM viviendas2 v
-	INNER JOIN dim_barrio ba ON v.BARRIO85 = ba.nombre
-    INNER JOIN hogares_v2 h ON v.ID_VIVIEND = h.ID_VIVIEND
-WHERE v.BARRIO85 is NOT NULL and v.ViVVO01 not in (20,11)
+	LEFT JOIN dim_barrio ba ON v.BARRIO85 = ba.nombre
+    LEFT JOIN hogares_v2 h ON v.ID_VIVIEND = h.ID_VIVIEND
+WHERE v.BARRIO85 is NOT NULL
 GROUP BY v.ID_VIVIEND, v.BARRIO85, v.ViVVO01, v.VivDV03, v.VivDV01, v.VivDV02,  v.VivDV07, v.VivDV05;
 
 SELECT COUNT(1) FROM fact_viviendas;
-SELECT COUNT(1) FROM viviendas2 WHERE BARRIO85 is NOT NULL and ViVVO01 not in (20,11);
+SELECT COUNT(1) FROM viviendas2 WHERE BARRIO85 is NOT NULL
