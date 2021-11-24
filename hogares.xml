@@ -1,0 +1,132 @@
+<Schema name="SchemaNico">
+  <Cube name="personas" visible="true" cache="true" enabled="true">
+    <Table name="fact_personas">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" highCardinality="false" name="Barrio">
+      <Hierarchy name="Barrio" visible="true" hasAll="true">
+        <Table name="dim_barrio">
+        </Table>
+        <Level name="Nombre Barrio" visible="true" table="dim_barrio" column="clave_barrio" nameColumn="nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_rango_de_edad" highCardinality="false" name="Rango de edad">
+      <Hierarchy name="Rango edad" visible="true" hasAll="true">
+        <Table name="dim_rango_de_edad">
+        </Table>
+        <Level name="Nombre rango" visible="true" table="dim_rango_de_edad" column="clave_rango_de_edad" nameColumn="rango" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_estado_civil" highCardinality="false" name="Estado civil">
+      <Hierarchy name="Estado civil" visible="true" hasAll="true">
+        <Table name="dim_estado_civil">
+        </Table>
+        <Level name="Estado civil" visible="true" table="dim_estado_civil" column="clave_estado_civil" nameColumn="estado_civil" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_dificultad_para_ver" highCardinality="false" name="Dificultad para ver">
+      <Hierarchy name="Dificultad para ver" visible="true" hasAll="true">
+        <Table name="dim_dificultad_para_ver">
+        </Table>
+        <Level name="Dificultad para ver" visible="true" table="dim_dificultad_para_ver" column="clave_dificultad_para_ver" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_nivel_educativo" highCardinality="false" name="Nivel educativo">
+      <Hierarchy name="Nivel educativo" visible="true" hasAll="true">
+        <Table name="dim_nivel_educativo">
+        </Table>
+        <Level name="Nivel educativo" visible="true" table="dim_nivel_educativo" column="clave_nivel_educativo" nameColumn="nivel_mas_alto_que_curso" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_actividad_economica" highCardinality="false" name="Actividad economica">
+      <Hierarchy name="Actividad economica" visible="true" hasAll="true">
+        <Table name="dim_actividad_economica">
+        </Table>
+        <Level name="Actividad economica" visible="true" table="dim_actividad_economica" column="clave_actividad_economica" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Cantidad" column="cantidad_de_personas" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="hogares" visible="true" cache="true" enabled="true">
+    <Table name="fact_hogares">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_barrio" highCardinality="false" name="Barrio">
+      <Hierarchy name="Barrio" visible="true" hasAll="true">
+        <Table name="dim_barrio">
+        </Table>
+        <Level name="Nombre Barrio" visible="true" table="dim_barrio" column="clave_barrio" nameColumn="nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_acceso_a_internet" highCardinality="false" name="Acceso a internet">
+      <Hierarchy name="Acceso a internet" visible="true" hasAll="true">
+        <Table name="dim_acceso_a_internet">
+        </Table>
+        <Level name="Tiene acceso a internet" visible="true" table="dim_acceso_a_internet" column="clave_acceso_a_internet" nameColumn="tiene_acceso_a_internet" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_cantidad_de_nbi" highCardinality="false" name="Cantidad de NBI">
+      <Hierarchy name="Cantidad de NBI" visible="true" hasAll="true">
+        <Table name="dim_cantidad_de_nbi">
+        </Table>
+        <Level name="Descripcion" visible="true" table="dim_cantidad_de_nbi" column="clave_cantidad_de_nbi" nameColumn="descripcion" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_lugar_para_cocinar" name="Lugar para cocinar">
+      <Hierarchy name="Lugar para cocinar" visible="true" hasAll="true">
+        <Table name="dim_lugar_para_cocinar" alias="">
+        </Table>
+        <Level name="Descripcion" visible="true" table="dim_lugar_para_cocinar" column="clave_lugar_para_cocinar" nameColumn="descripcion" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_disponibilidad_de_ba&#241;o" name="Disponibilidad de bano">
+      <Hierarchy name="Disponibilidad de bano" visible="true" hasAll="true">
+        <Table name="dim_disponibilidad_de_ba&#241;o" alias="">
+        </Table>
+        <Level name="Descripcion" visible="true" table="dim_disponibilidad_de_ba&#241;o" column="clave_disponibilidad_de_ba&#241;o" nameColumn="descripcion" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_telefono_fijo" name="Telefono fijo">
+      <Hierarchy name="Telefono fijo" visible="true" hasAll="true">
+        <Table name="dim_telefono_fijo" alias="">
+        </Table>
+        <Level name="Tiene telefono fijo" visible="true" table="dim_telefono_fijo" column="clave_telefono_fijo" nameColumn="tiene_telefono_fijo" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_telefono_celular" name="Telefono celular">
+      <Hierarchy name="Telefono celular" visible="true" hasAll="true">
+        <Table name="dim_telefono_celular" alias="">
+        </Table>
+        <Level name="Tiene telefono celular" visible="true" table="dim_telefono_celular" column="clave_telefono_celular" nameColumn="tiene_telefono_celular" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_calefon_o_caldera" name="Calefon o caldera">
+      <Hierarchy name="Calefon o caldera" visible="true" hasAll="true">
+        <Table name="dim_calefon_o_caldera">
+        </Table>
+        <Level name="Tiene calefon o caldera" visible="true" table="dim_calefon_o_caldera" column="clave_calefon_o_caldera" nameColumn="tiene_calefon_o_caldera" type="Integer" internalType="Object" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Cantidad de hogares" column="cantidad_de_hogares" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de mujeres" column="cantidad_de_mujeres" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de hombres" column="cantidad_de_hombres" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Cantidad de personas" column="cantidad_de_personas" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
