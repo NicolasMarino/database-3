@@ -54,9 +54,6 @@ INSERT into dim_dificultad_para_caminar value (1,'No tiene dificultad');
 INSERT into dim_dificultad_para_caminar value (2,'Sí, alguna dificultad');
 INSERT into dim_dificultad_para_caminar value (3,'Sí, mucha dificultad');
 INSERT into dim_dificultad_para_caminar value (4,'Sí, no puede hacerlo');
-INSERT into dim_dificultad_para_caminar value (8,'No relevado');
-INSERT into dim_dificultad_para_caminar value (9,'Ignorado');
-INSERT into dim_dificultad_para_caminar value (5555,'No Revelado');
 
 /* PerEd08 */
 INSERT INTO dim_sabe_leer_y_escribir VALUES(1,'Si');

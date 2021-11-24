@@ -3,33 +3,31 @@ DELETE from fact_hogares;
 INSERT INTO fact_hogares
 SELECT ba.clave_barrio, 
 CASE
-    WHEN h.NBI_CANTID = 8 THEN NULL
-    WHEN h.NBI_CANTID = 9 THEN NULL
-    WHEN h.NBI_CANTID = 5555 THEN NULL
+    WHEN h.NBI_CANTID IN (8, 9, 5555) THEN NULL
     ELSE h.NBI_CANTID
 END as cantidad_nbi,
 CASE 
-	WHEN H.HogSC01 = 8 THEN NULL
+	WHEN H.HogSC01 IN (8, 5555) THEN NULL
 	ELSE H.HogSC01
 END as lugar_para_cocinar,
 CASE
-    WHEN h.HogSH01 = 8 THEN NULL
+    WHEN h.HogSH01 IN (8, 5555) THEN NULL
     ELSE h.HogSH01
 END as disponibilidad_banio,
 CASE
-    WHEN h.HogCE07 = 8 THEN NULL
+    WHEN h.HogCE07 IN (8, 5555) THEN NULL
     ELSE h.HogCE07
 END as telefono_fijo,
 CASE
-    WHEN h.HogCE11 = 8 THEN NULL
+    WHEN h.HogCE11 IN (8, 5555) THEN NULL
     ELSE h.HogCE11
 END as acceso_internet,
 CASE
-    WHEN h.HogCE08 = 8 THEN NULL
+    WHEN h.HogCE08 IN (8, 5555) THEN NULL
     ELSE h.HogCE08
 END as telefono_celular,
 CASE
-    WHEN h.HogCE01 = 8 THEN NULL
+    WHEN h.HogCE01 IN (8, 5555) THEN NULL
     ELSE h.HogCE01
 END as calefon_o_caldera,
 1 as cantidad_hogares,
