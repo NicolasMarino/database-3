@@ -1,27 +1,3 @@
--- Script de inserción de datos en fact_viviendas
-
-/*
-TODO:
- - Revisar join.
- - Agregar hechos y ponerlos en group by.
-*/
-
--- Código viejo (no quise borrarlo porque era tuyo y capaz algo nos sirva) --
-INSERT INTO fact_viviendas
-SELECT ba.clave_barrio, v.ViVVO01 , v.ViVDV01 , 
-	   v.ViVDV07, v.TIPO_VIVIE, v.ViVDV03, v.ViVDV02 ,  v.ViVDV05 , 
-       count(distinct v.id_viviend),
-       count(distinct HOGID),
-       sum(h.HOGPR03) as cant_mujeres,
-       sum(h.HOGPR02) as cant_hombres,
-       sum(h.HOGPR01) as cant_personas
-FROM viviendas2 v
-	INNER JOIN dim_barrio ba on v.BARRIO85 = ba.nombre
-    INNER JOIN hogares_v2 h on v.id_viviend = h.id_viviend
-WHERE v.BARRIO85 is not null
-group by ba.clave_barrio, v.ViVVO01, v.ViVDV01, v.ViVDV07, v.TIPO_VIVIE, v.ViVDV03, v.ViVDV02, v.ViVDV05
--------------------------------------------------
-
 DELETE from fact_viviendas;
 
 INSERT INTO fact_viviendas
@@ -52,10 +28,10 @@ CASE
     ELSE v.VivDV05
 END as origen_agua,
 1 as cantidad_viviendas,
-COUNT(DISTINCT h.HOGID) AS cant_hogares,
-SUM(h.HogPR03) AS cant_mujeres,
-SUM(h.HogPR02) AS cant_hombres,
-SUM(h.HogPR01) AS cant_personas
+v.VivHV01_1 as cant_hogares_en_vivienda,
+h.HogPR03 AS cant_mujeres,
+h.HogPR02 AS cant_hombres,
+h.HogPR01 AS cant_personas
 FROM viviendas2 v
 	INNER JOIN dim_barrio ba ON v.BARRIO85 = ba.nombre
     INNER JOIN hogares_v2 h ON v.ID_VIVIEND = h.ID_VIVIEND

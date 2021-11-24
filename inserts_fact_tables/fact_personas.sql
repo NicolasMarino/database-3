@@ -19,7 +19,7 @@ CASE
 	ELSE p.pobpcoac
 END as actividad_economica,
 CASE
-	WHEN p.PerEC04 IN (8,9) THEN NULL
+	WHEN p.PerEC04 IN (8,9, 5555) THEN NULL
     ELSE p.PerEC04
 END as estado_civil,
 CASE
@@ -42,7 +42,7 @@ CASE
 END as cantidad_de_hijos_vivos
 FROM personas2 p
 	INNER JOIN dim_barrio ba ON p.BARRIO85 = ba.nombre
-WHERE p.BARRIO85 is NOT NULL AND p.PerEC04 != 5555
+WHERE p.BARRIO85 is NOT NULL
 GROUP BY p.ID_viviend, p.hogid, p.perid, p.BARRIO85, p.PerPH02, p.niveledu_r, p.PerNa01, p.pobpcoac,  p.PerEC04, 
 		 p.PerDi01, p.PerDi04, p.PerEd08, p.PerFM01_r;
          
