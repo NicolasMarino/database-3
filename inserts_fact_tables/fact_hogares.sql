@@ -31,8 +31,8 @@ CASE
     ELSE h.HogCE01
 END as calefon_o_caldera,
 1 as cantidad_hogares,
-h.HOGPR03,
-h.HOGPR02
+h.HOGPR03 as cantidad_de_mujeres,
+h.HOGPR02 as cantidad_de_hombres
 FROM hogares2 h
 	INNER JOIN dim_barrio ba ON h.BARRIO85 = ba.nombre
 WHERE h.BARRIO85 is NOT NULL

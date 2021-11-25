@@ -34,8 +34,7 @@ SELECT dimb.nombre,
        dimcc.tiene_calefon_o_caldera,
        cantidad_de_hogares,
        cantidad_de_mujeres,
-       cantidad_de_hombres,
-       cantidad_de_personas
+       cantidad_de_hombres
 FROM fact_hogares fh
 LEFT JOIN dim_barrio dimb ON dimb.clave_barrio = fh.clave_barrio
 LEFT JOIN dim_cantidad_de_nbi dimcnbi ON dimcnbi.clave_cantidad_de_nbi = fh.clave_cantidad_de_nbi

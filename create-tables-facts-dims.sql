@@ -178,8 +178,7 @@ CREATE TABLE fact_viviendas (
     cantidad_de_viviendas INT(1) default 1, /* Constante 1 */
     cantidad_de_hogares_en_vivienda  INT(12), /* VivHV01_1 */
     cantidad_de_mujeres  INT(12), /* HOGPR03 */
-    cantidad_de_hombres  INT(12), /* HOGPR02 */
-    cantidad_de_personas INT(12) /* HogPR01 */
+    cantidad_de_hombres  INT(12) /* HOGPR02 */
 );
 
 -- Hogares --
