@@ -66,9 +66,17 @@
         </Level>
       </Hierarchy>
     </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clave_sexo" name="Sexo">
+      <Hierarchy name="Sexo" visible="true" hasAll="true">
+        <Table name="dim_sexo" alias="">
+        </Table>
+        <Level name="Sexo" visible="true" table="dim_sexo" column="clave_sexo" nameColumn="sexo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
     <Measure name="Cantidad de personas" column="cantidad_de_personas" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="Cantidad de hijos" column="cantidad_de_hijos" aggregator="sum" visible="true">
+    <Measure name="Cantidad de hijos nacidos vivos" column="cantidad_de_hijos" aggregator="avg" visible="true">
     </Measure>
     <Measure name="Edad" column="edad" aggregator="avg" visible="true">
     </Measure>
