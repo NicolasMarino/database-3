@@ -82,7 +82,6 @@ INSERT INTO dim_tipo_de_vivienda VALUES(16,'Hogar de guardia o similar.');
 INSERT INTO dim_tipo_de_vivienda VALUES(17,'Cuartel militar o policial.');
 INSERT INTO dim_tipo_de_vivienda VALUES(18,'Otra colectiva.');
 INSERT INTO dim_tipo_de_vivienda VALUES(19,'Refugios.');
-INSERT INTO dim_tipo_de_vivienda VALUES(20,'Ignorado particular.');
 
 /* VivDV01 */
 INSERT INTO dim_material_paredes_exteriores VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
