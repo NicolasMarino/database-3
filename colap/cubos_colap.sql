@@ -1,12 +1,12 @@
 -- Viviendas --
-SELECT dimba.nombre,
-	   dimv.descripcion,
-       dimpe.descripcion,
-       dimae.descripcion,
-       ditv.descripcion,
-       dimp.descripcion,
-       dimt.desciripcion,
-       dimoa.descripcion,
+SELECT dimba.nombre as barrio,
+       dimv.descripcion as tipo_vivienda,
+       dimpe.descripcion as paredes_exteriores,
+       dimae.descripcion as medio_alumbrado_electrico,
+       ditv.descripcion as tipo_vivienda_resumido,
+       dimp.descripcion as material_pisos,
+       dimt.desciripcion as material_techos,
+       dimoa.descripcion as origen_agua,
        fv.cantidad_de_viviendas,
        fv.cantidad_de_hogares_en_vivienda,
        fv.cantidad_de_mujeres,
@@ -20,18 +20,18 @@ LEFT JOIN dim_medio_alumbrado_electrico dimae on fv.clave_medio_alumbrado_electr
 LEFT JOIN dim_tipo_vivienda_resumido ditv on fv.clave_tipo_vivienda_resumido = ditv.clave_tipo_vivienda_resumido
 LEFT JOIN dim_material_pisos dimp on fv.clave_material_pisos = dimp.clave_material_pisos
 LEFT JOIN dim_material_techos dimt on fv.clave_material_techos = dimt.clave_material_techos
-LEFT JOIN dim_origen_de_agua dimoa on fv.clave_origen_de_agua = dimoa.clave_origen_de_agua
+LEFT JOIN dim_origen_de_agua dimoa on fv.clave_origen_de_agua = dimoa.clave_origen_de_agua;
 
 
 -- Hogares --
-SELECT dimb.nombre,
-	   dimcnbi.descripcion,
-       dimlc.descripcion,
-       dimba.descripcion,
-       dimtf.tiene_telefono_fijo,
-       dimai.tiene_acceso_a_internet,
-       dimtc.tiene_telefono_celular,
-       dimcc.tiene_calefon_o_caldera,
+SELECT dimb.nombre as barrio,
+	dimcnbi.descripcion as cantidad_nbi,
+       dimlc.descripcion as lugar_cocina,
+       dimba.descripcion as dispo_banio,
+       dimtf.tiene_telefono_fijo as telefono_fino,
+       dimai.tiene_acceso_a_internet as acceso_internet,
+       dimtc.tiene_telefono_celular as telefono_celular,
+       dimcc.tiene_calefon_o_caldera as calefon_o_caldera,
        cantidad_de_hogares,
        cantidad_de_mujeres,
        cantidad_de_hombres
@@ -46,18 +46,18 @@ LEFT JOIN dim_telefono_celular dimtc ON dimtc.clave_telefono_celular = fh.clave_
 LEFT JOIN dim_calefon_o_caldera dimcc ON dimcc.clave_calefon_o_caldera = fh.clave_calefon_o_caldera;
 
 -- Personas --
-SELECT dimb.nombre,
-		dims.sexo,
-        dimne.nivel_mas_alto_que_curso,
-        dimre.rango,
-        dimae.descripcion,
-        dimec.estado_civil,
-        dimdf.tiene_dificultad,
-        dimdc.tiene_dificultad,
-        dimle.descripcion,
-        fp.cantidad_de_personas,
-        fp.edad,
-        fp.cantidad_de_hijos
+SELECT dimb.nombre as barrio,
+	dims.sexo as sexo,
+       dimne.nivel_mas_alto_que_curso as nivel_educativo_mas_alto,
+       dimre.rango as rango_edad,
+       dimae.descripcion as actividad_economica,
+       dimec.estado_civil as estado_civil,
+       dimdf.tiene_dificultad as dificultad_ver,
+       dimdc.tiene_dificultad as dificultad_caminar,
+       dimle.descripcion as sabe_leer_y_escribir,
+       fp.cantidad_de_personas,
+       fp.edad,
+       fp.cantidad_de_hijos
 FROM fact_personas fp
 LEFT JOIN dim_barrio dimb on fp.clave_barrio = dimb.clave_barrio
 LEFT JOIN dim_sexo dims on fp.clave_sexo = dims.clave_sexo
