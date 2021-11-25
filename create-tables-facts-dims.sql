@@ -141,7 +141,7 @@ CREATE TABLE dim_rango_de_edad (
 
 CREATE TABLE dim_actividad_economica(
     clave_actividad_economica  INT(12) NOT NULL PRIMARY KEY, /* pobpcoac */
-    tiene_dificultad VARCHAR(50) 
+    descripcion VARCHAR(50) 
 );
 
 CREATE TABLE dim_estado_civil(

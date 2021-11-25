@@ -46,7 +46,7 @@
       <Hierarchy name="Actividad economica" visible="true" hasAll="true">
         <Table name="dim_actividad_economica">
         </Table>
-        <Level name="Actividad economica" visible="true" table="dim_actividad_economica" column="clave_actividad_economica" nameColumn="tiene_dificultad" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="Actividad economica" visible="true" table="dim_actividad_economica" column="clave_actividad_economica" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -148,6 +148,8 @@
     </Measure>
     <Measure name="Cantidad de hombres" column="cantidad_de_hombres" aggregator="sum" visible="true">
     </Measure>
+    <CalculatedMember name="Cantidad de personas" formula="[Measures].[Cantidad de hombres] + [Measures].[Cantidad de mujeres]" dimension="Measures" visible="true">
+    </CalculatedMember>
   </Cube>
   <Cube name="Hogares" visible="true" cache="true" enabled="true">
     <Table name="fact_hogares">
