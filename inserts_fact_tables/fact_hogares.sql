@@ -32,9 +32,8 @@ CASE
 END as calefon_o_caldera,
 1 as cantidad_hogares,
 h.HOGPR03,
-h.HOGPR02,
-h.HOGPR01
-FROM hogares_v2 h
+h.HOGPR02
+FROM hogares2 h
 	INNER JOIN dim_barrio ba ON h.BARRIO85 = ba.nombre
 WHERE h.BARRIO85 is NOT NULL
 GROUP BY h.ID_VIVIEND, H.HOGID, h.BARRIO85, h.NBI_CANTID, h.HogSH01, h.HogCE07, h.HogCE11,  h.HogCE08, h.HogCE01;

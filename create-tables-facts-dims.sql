@@ -194,8 +194,7 @@ CREATE TABLE fact_hogares (
     clave_calefon_o_caldera INT(11) REFERENCES dim_calefon_o_caldera (clave_calefon_o_caldera),
     cantidad_de_hogares INT(11) default 1, /* Constante 1 */
     cantidad_de_mujeres INT(11), /* HOGPR03 */
-    cantidad_de_hombres INT(11), /* HOGPR02 */
-    cantidad_de_personas INT(11) /* HogPR01 */
+    cantidad_de_hombres INT(11) /* HOGPR02 */
 );
 
 -- Personas --
