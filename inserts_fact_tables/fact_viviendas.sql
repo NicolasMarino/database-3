@@ -6,23 +6,23 @@ CASE
     WHEN v.ViVVO01 = 20 THEN NULL
     ELSE v.ViVVO01
 END as tipo_vivienda,
+CASE
+    WHEN v.VivDV01 IN (8, 5555) THEN NULL
+    ELSE v.VivDV01
+END as material_paredes,
+CASE
+    WHEN v.VivDV07 IN (8, 5555) THEN NULL
+    ELSE v.VivDV07
+END as medio_alumbrado_electrico,
 v.TIPO_VIVIE as tipo_viv_resumido,
 CASE
     WHEN v.VivDV03 IN (8, 5555) THEN NULL
     ELSE v.VivDV03
 END as material_pisos,
 CASE
-    WHEN v.VivDV01 IN (8, 5555) THEN NULL
-    ELSE v.VivDV01
-END as material_paredes,
-CASE
     WHEN v.VivDV02 IN (8, 5555) THEN NULL
     ELSE v.VivDV02
 END as material_techos,
-CASE
-    WHEN v.VivDV07 IN (8, 5555) THEN NULL
-    ELSE v.VivDV07
-END as medio_alumbrado_electrico,
 CASE
     WHEN v.VivDV05 IN (8, 5555) THEN NULL
     ELSE v.VivDV05
