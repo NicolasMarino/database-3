@@ -84,7 +84,7 @@ INSERT INTO dim_tipo_de_vivienda VALUES(18,'Otra colectiva.');
 INSERT INTO dim_tipo_de_vivienda VALUES(19,'Refugios.');
 
 /* VivDV01 */
-INSERT INTO dim_material_paredes_exteriores VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
+INSERT INTO dim_material_paredes_exteriores VALUES(0,'No aplica a esta vivienda porque no está ocupada.');
 INSERT INTO dim_material_paredes_exteriores VALUES(1,'Mamposteria: ladrillos, ticholos, piedras o bloques con terminacion.');
 INSERT INTO dim_material_paredes_exteriores VALUES(2,'Mamposteria: ladrillos, ticholos, piedras o bloques sin terminacion.');
 INSERT INTO dim_material_paredes_exteriores VALUES(3,'Materiales livianos (madera o chapa) con revestimiento.');
@@ -94,7 +94,7 @@ INSERT INTO dim_material_paredes_exteriores VALUES(6,'Materiales de desecho.');
 INSERT INTO dim_material_paredes_exteriores VALUES(7,'Otro.');
 
 /* VivDV07 */
-INSERT INTO dim_medio_alumbrado_electrico VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
+INSERT INTO dim_medio_alumbrado_electrico VALUES(0,'No aplica a esta vivienda porque no está ocupada.');
 INSERT INTO dim_medio_alumbrado_electrico VALUES(1,'UTE o red general.');
 INSERT INTO dim_medio_alumbrado_electrico VALUES(2,'Cargador eolico de bateria.');
 INSERT INTO dim_medio_alumbrado_electrico VALUES(3,'Cargador solar de bateria.');
@@ -107,7 +107,7 @@ INSERT INTO dim_tipo_vivienda_resumido VALUES(1, 'Particular');
 INSERT INTO dim_tipo_vivienda_resumido VALUES(2, 'Colectiva');
 
 /* VivDV03 */
-INSERT INTO dim_material_pisos VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
+INSERT INTO dim_material_pisos VALUES(0,'No aplica a esta vivienda porque no está ocupada.');
 INSERT INTO dim_material_pisos VALUES (1,'Ceramica, baldosas, piedra laja, madera, moqueta, linoleo, etc.');
 INSERT INTO dim_material_pisos VALUES (2,'Arena y portland.');
 INSERT INTO dim_material_pisos VALUES (3,'Solo contrapiso sin piso.');
@@ -115,7 +115,7 @@ INSERT INTO dim_material_pisos VALUES (4,'Tierra sin piso ni contrapiso.');
 INSERT INTO dim_material_pisos VALUES (5,'Otro.');
 
 /* VivDV02 */
-INSERT INTO dim_material_techos VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
+INSERT INTO dim_material_techos VALUES(0,'No aplica a esta vivienda porque no está ocupada.');
 INSERT INTO dim_material_techos VALUES(1,'Planchada de hormigon o bovedilla con o sin tejas.');
 INSERT INTO dim_material_techos VALUES(2,'Liviano con cielo raso.');
 INSERT INTO dim_material_techos VALUES(3,'Liviano sin cielo raso.');
@@ -124,7 +124,7 @@ INSERT INTO dim_material_techos VALUES(5,'Materiales de desecho.');
 INSERT INTO dim_material_techos VALUES(6,'Otro.');
 
 /* VivDV05 */
-INSERT INTO dim_origen_de_agua VALUES(0,'No aplica a esta vivienda porque no esta ocupada.');
+INSERT INTO dim_origen_de_agua VALUES(0,'No aplica a esta vivienda porque no está ocupada.');
 INSERT INTO dim_origen_de_agua VALUES(1,'OSE o red general.');
 INSERT INTO dim_origen_de_agua VALUES(2,'Pozo surgente protegido.');
 INSERT INTO dim_origen_de_agua VALUES(3,'Pozo surgente no protegido.');
